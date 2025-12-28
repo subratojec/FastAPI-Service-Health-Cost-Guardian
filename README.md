@@ -91,6 +91,8 @@ Grafana dashboards visualize:
 
 The dashboards are designed to help correlate **traffic patterns with resource usage** and detect early signs of instability.
 
+![img.png](img.png)
+
 ---
 
 ## Alerting

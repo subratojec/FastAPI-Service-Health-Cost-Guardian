@@ -1,0 +1,29 @@
+groups:
+  - name: guardian-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: system_cpu_usage_percent > 30
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage has been above 30% for more than 1 minutes."
+
+      - alert: HighMemoryUsage
+        expr: system_memory_usage_percent > 50
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High memory usage detected"
+          description: "Memory usage above 50% may lead to OOMKill."
+
+      - alert: HighRequestRate
+        expr: sum(rate(http_requests_total[1m])) > 10
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High request rate detected"
+          description: "Request rate exceeded 10 req/s for over 1 minute."

@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   guardian:
     build: .
@@ -12,14 +10,21 @@ services:
     image: prom/prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./alerts.yml:/etc/prometheus/alerts.yml
     ports:
       - "9090:9090"
     depends_on:
       - guardian
+      - alertmanager
+
+  alertmanager:
+    image: prom/alertmanager
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    ports:
+      - "9093:9093"
 
   grafana:
     image: grafana/grafana
     ports:
       - "3000:3000"
-    depends_on:
-      - prometheus

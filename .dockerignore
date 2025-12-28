@@ -1,0 +1,59 @@
+# ================================
+# Python artifacts
+# ================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# ================================
+# Git & CI
+# ================================
+.git/
+.gitignore
+.github/
+
+# ================================
+# Editor & OS files
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ================================
+# Test / coverage artifacts
+# ================================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ================================
+# Logs & temp files
+# ================================
+*.log
+*.tmp
+
+# ================================
+# Prometheus / Grafana runtime data
+# ================================
+prometheus-data/
+grafana-data/
+
+# ================================
+# Docs & local-only files
+# ================================
+README.md
+*.md
+
+# ================================
+# Docker / Compose extras
+# ================================
+docker-compose.override.yml

@@ -1,8 +1,9 @@
 from fastapi import FastAPI, Request
 from app.api.health import router as health_router
+from app.api.risk import router as risk_router
 from app.core.metrics import REQUEST_COUNT
 from app.api.metrics import router as metrics_router
-# from app.api.stress import router as stress_router
+from app.api.stress import router as stress_router
 import asyncio
 from app.core.system_stats import update_system_metrics
 
@@ -31,7 +32,9 @@ async def start_metrics_collector():
 app.include_router(health_router) # Registerring the Health Router
 app.include_router(metrics_router)
 
-# app.include_router(stress_router)
+app.include_router(stress_router)
+
+app.include_router(risk_router)
 
 
 @app.get("/")
